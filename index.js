@@ -23,7 +23,7 @@ class Counter {
 	}
 	
 	execute(currentState) {
-		return new Promise((resolve, reject) => {
+		return new Promise((resolve, _) => {
 			this.counter += this.increment;
 			currentState.text = this.counter.toString();
 			resolve(currentState);
@@ -53,4 +53,4 @@ class Counter {
 	}
 }
 
-module.IdeckiaAction = Counter;
+exports.IdeckiaAction = Counter;
