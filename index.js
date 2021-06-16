@@ -1,6 +1,6 @@
 class Counter {
 	
-	setProps(props, server) {
+	setup(props, server) {
 		this.props = props;
 		this.server = server;
 
