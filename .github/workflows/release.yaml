@@ -1,0 +1,32 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    env:
+      CMD_NAME: counter
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Package to release
+      run: |
+        mkdir ${{ env.CMD_NAME }}
+        mv index.js ${{ env.CMD_NAME }}
+        zip -r ${{ env.CMD_NAME }} ${{ env.CMD_NAME }}
+
+    - name: Release
+      uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        prerelease: false
+        files: ${{ env.CMD_NAME }}.zip
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
