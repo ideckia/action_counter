@@ -31,8 +31,9 @@ class Counter {
     }
 
     onLongPress(currentState) {
-        return new Promise(function (resolve, reject) {
+        return new Promise((resolve, _) => {
             this.counter = 0;
+            currentState.text = this.counter.toString();
             resolve(currentState);
         });
     }
