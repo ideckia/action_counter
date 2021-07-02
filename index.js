@@ -17,7 +17,7 @@ class Counter {
         }
     }
 
-    init() {
+    init(_) {
         this.counter = Math.floor(this.props.initial);
         this.increment = Math.floor(this.props.increment);
     }
