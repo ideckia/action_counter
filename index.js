@@ -32,7 +32,7 @@ class Counter {
 
     onLongPress(currentState) {
         return new Promise((resolve, _) => {
-            this.counter = 0;
+            this.counter = Math.floor(this.props.initial);
             currentState.text = this.counter.toString();
             resolve(currentState);
         });
