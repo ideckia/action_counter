@@ -18,13 +18,15 @@ A simple counter
     "state": {
         "text": "action_counter project",
         "bgColor": "00ff00",
-        "action": {
-            "name": "counter",
-            "props": {
-                "initial": 10,
-                "increment": -1
+        "actions": [
+            {
+                "name": "counter",
+                "props": {
+                    "initial": 10,
+                    "increment": -1
+                }
             }
-        }
+        ]
     }
 }
 ```
