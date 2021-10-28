@@ -17,9 +17,14 @@ class Counter {
         }
     }
 
-    init(_) {
-        this.counter = Math.floor(this.props.initial);
-        this.increment = Math.floor(this.props.increment);
+    init(initialState) {
+        return new Promise((resolve, _) => {
+            this.counter = Math.floor(this.props.initial);
+            this.increment = Math.floor(this.props.increment);
+            currentState.text = this.counter.toString();
+
+            resolve(initialState);
+        });
     }
 
     execute(currentState) {
@@ -44,7 +49,8 @@ class Counter {
 
     getActionDescriptor() {
         return {
-            name: "Counter",
+            name: "counter",
+            description: "A simple counter",
             props: [{
                 name: "increment",
                 type: "Int",
