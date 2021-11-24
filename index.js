@@ -50,7 +50,7 @@ class Counter {
     getActionDescriptor() {
         return {
             name: "counter",
-            description: "A simple counter",
+            description: "A simple counter, up or down",
             props: [{
                 name: "increment",
                 type: "Int",
