@@ -21,7 +21,7 @@ class Counter {
         return new Promise((resolve, _) => {
             this.counter = Math.floor(this.props.initial);
             this.increment = Math.floor(this.props.increment);
-            currentState.text = this.counter.toString();
+            initialState.text = this.counter.toString();
 
             resolve(initialState);
         });
