@@ -18,29 +18,23 @@ class Counter {
     }
 
     init(initialState) {
-        return new Promise((resolve, _) => {
-            this.counter = Math.floor(this.props.initial);
-            this.increment = Math.floor(this.props.increment);
-            initialState.text = this.counter.toString();
+        this.counter = Math.floor(this.props.initial);
+        this.increment = Math.floor(this.props.increment);
+        initialState.text = this.counter.toString();
 
-            resolve(initialState);
-        });
+        return Promise.resolve(initialState);
     }
 
     execute(currentState) {
-        return new Promise((resolve, _) => {
-            this.counter += this.increment;
-            currentState.text = this.counter.toString();
-            resolve(currentState);
-        });
+        this.counter += this.increment;
+        currentState.text = this.counter.toString();
+        return Promise.resolve({ state: currentState });
     }
 
     onLongPress(currentState) {
-        return new Promise((resolve, _) => {
-            this.counter = Math.floor(this.props.initial);
-            currentState.text = this.counter.toString();
-            resolve(currentState);
-        });
+        this.counter = Math.floor(this.props.initial);
+        currentState.text = this.counter.toString();
+        return Promise.resolve({ state: currentState });
     }
 
     toJson() {
@@ -48,7 +42,7 @@ class Counter {
     }
 
     getActionDescriptor() {
-        return {
+        return Promise.resolve({
             name: "counter",
             description: "A simple counter, up or down",
             props: [{
@@ -63,7 +57,7 @@ class Counter {
                 defaultValue: "0",
                 description: "Initial value"
             }]
-        };
+        });
     }
 }
 
