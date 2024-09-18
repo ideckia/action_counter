@@ -1,0 +1,14 @@
+[
+	{
+		"id": "action_description",
+		"text": "A simple counter, up or down"
+	},
+	{
+		"id": "prop_increment",
+		"text": "Increment number"
+	},
+	{
+		"id": "prop_initial",
+		"text": "Initial value"
+	}
+]

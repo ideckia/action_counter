@@ -1,0 +1,14 @@
+[
+	{
+		"id": "action_description",
+		"text": "Kontagailu soil bat, gorantz edo beherantz"
+	},
+	{
+		"id": "prop_increment",
+		"text": "Gehitzeko zenbakia"
+	},
+	{
+		"id": "prop_initial",
+		"text": "Hasierako balioa"
+	}
+]

@@ -1,8 +1,11 @@
+const path = require('path');
+
 class Counter {
 
-    setup(props, server) {
+    setup(props, core) {
         this.props = props;
-        this.server = server;
+        this.core = core;
+        this.localizedTexts = core.data.getLocalizations(path.join(__dirname, 'loc'));
 
         if (this.props == null) {
             this.props = {};
@@ -37,25 +40,22 @@ class Counter {
         return Promise.resolve({ state: currentState });
     }
 
-    toJson() {
-        return { name: "counter", props: this.props };
-    }
-
     getActionDescriptor() {
+        const locale = this.core.data.getCurrentLocale();
         return Promise.resolve({
             name: "counter",
-            description: "A simple counter, up or down",
+            description: this.localizedTexts.tr(locale, "action_description"),
             props: [{
                 name: "increment",
                 type: "Int",
                 defaultValue: "1",
-                description: "Increment number"
+                description: this.localizedTexts.tr(locale, "prop_increment")
             },
             {
                 name: "initial",
                 type: "Int",
                 defaultValue: "0",
-                description: "Initial value"
+                description: this.localizedTexts.tr(locale, "prop_initial")
             }]
         });
     }
