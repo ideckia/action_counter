@@ -10,5 +10,9 @@
 	{
 		"id": "prop_initial",
 		"text": "Hasierako balioa"
+	},
+	{
+		"id": "prop_text",
+		"text": "Balioarekin erakutsiko den testua"
 	}
 ]

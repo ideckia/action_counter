@@ -6,10 +6,11 @@ A simple counter
 
 ## Properties
 
-| Name | Type | Default | Description | Possible values |
-| ----- |----- | ----- | ----- | ----- |
-| initial | Int | 0 | Initial value | null |
-| increment | Int | 1 | Increment number | null |
+| Name | Type | Description | Shared | Default | Possible values |
+| ----- |----- | ----- |----- | ----- | ----- |
+| text | String | Text shown with the value | false | "" | null |
+| initial | Int | Initial value | false | 0 | null |
+| increment | Int | Increment number | false | 1 | null |
 
 ## Example in layout file
 
@@ -22,6 +23,7 @@ A simple counter
             {
                 "name": "counter",
                 "props": {
+                    "text": "",
                     "initial": 10,
                     "increment": -1
                 }

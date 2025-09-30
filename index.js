@@ -11,6 +11,10 @@ class Counter {
             this.props = {};
         }
 
+        if (this.props.text == null) {
+            this.props.text = "";
+        }
+
         if (this.props.initial == null) {
             this.props.initial = 0;
         }
@@ -30,13 +34,13 @@ class Counter {
 
     execute(currentState) {
         this.counter += this.increment;
-        currentState.text = this.counter.toString();
+        currentState.text = this.props.text + this.counter.toString();
         return Promise.resolve({ state: currentState });
     }
 
     onLongPress(currentState) {
         this.counter = Math.floor(this.props.initial);
-        currentState.text = this.counter.toString();
+        currentState.text = this.props.text + this.counter.toString();
         return Promise.resolve({ state: currentState });
     }
 
@@ -46,16 +50,22 @@ class Counter {
             name: "counter",
             description: this.localizedTexts.tr(locale, "action_description"),
             props: [{
-                name: "increment",
-                type: "Int",
-                defaultValue: "1",
-                description: this.localizedTexts.tr(locale, "prop_increment")
+                name: "text",
+                type: "String",
+                defaultValue: "",
+                description: this.localizedTexts.tr(locale, "prop_text")
             },
             {
                 name: "initial",
                 type: "Int",
                 defaultValue: "0",
                 description: this.localizedTexts.tr(locale, "prop_initial")
+            },
+            {
+                name: "increment",
+                type: "Int",
+                defaultValue: "1",
+                description: this.localizedTexts.tr(locale, "prop_increment")
             }]
         });
     }
